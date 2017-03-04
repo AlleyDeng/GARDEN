@@ -444,19 +444,24 @@
           <GroupName>HARDWARE</GroupName>
           <Files>
             <File>
-              <FileName>usart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\usart.c</FilePath>
-            </File>
-            <File>
               <FileName>led.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\led.c</FilePath>
             </File>
             <File>
+              <FileName>wifi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\wifi.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\usart1.c</FilePath>
+            </File>
+            <File>
               <FileName>usart3.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\usart3.c</FilePath>
+              <FilePath>..\HARDWARE\usart3.c</FilePath>
             </File>
           </Files>
         </Group>

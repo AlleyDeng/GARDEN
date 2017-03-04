@@ -97,7 +97,8 @@ void USART1_IRQHandler(void)
 		USART_ClearITPendingBit(USART1, USART_IT_RXNE);
 		temp = USART_ReceiveData(USART1);
 		if (temp == '\r' || temp == '#' || USART1_RXCUNT == 20) {
-			USART1_RXBUF[USART1_RXCUNT] = '\r';
+//			USART1_RXBUF[USART1_RXCUNT++] = '\r';
+//			USART1_RXBUF[USART1_RXCUNT++] = '\0';
 			USART1_RXCUNT = 0;
 			USART1_RXOVER = 1;
 			USART_ITConfig(USART1, USART_IT_RXNE, DISABLE);
@@ -117,7 +118,8 @@ void USART3_IRQHandler(void)
 		USART_ClearITPendingBit(USART3, USART_IT_RXNE);
 		temp = USART_ReceiveData(USART3);
 		if (temp == '\r' || temp == '#' || USART3_RXCUNT == 20) {
-			USART3_RXBUF[USART3_RXCUNT] = '\r';
+//			USART3_RXBUF[USART3_RXCUNT++] = '\r';
+//			USART3_RXBUF[USART3_RXCUNT++] = '\0';		
 			USART3_RXCUNT = 0;
 			USART3_RXOVER = 1;
 			USART_ITConfig(USART3, USART_IT_RXNE, DISABLE);
