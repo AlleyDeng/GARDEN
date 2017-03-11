@@ -5,7 +5,7 @@
 #include "delay.h"	   
 //////////////////////////////////////////////////////////////////////////////////	 
 //本程序只供学习使用，未经作者许可，不得用于其它任何用途
-//ALIENTEK 精英STM32F103开发板V3
+//ALIENTEK 战舰STM32F103开发板V3
 //2.4寸/2.8寸/3.5寸/4.3寸/7寸 TFT液晶驱动	  
 //支持驱动IC型号包括:ILI9341/ILI9325/RM68042/RM68021/ILI9320/ILI9328/LGDP4531/LGDP4535/
 //                  SPFD5408/1505/B505/C505/NT35310/NT35510/SSD1963等		    
@@ -2560,9 +2560,9 @@ void LCD_Init(void)
 		LCD_WriteReg(0X07,0X0133);   
 	}else if(lcddev.id==0X1963)
 	{
-		LCD_WR_REG(0xE2);		//Set PLL with OSC = 10MHz (hardware),	Multiplier N = 35, 250MHz < VCO < 800MHz = OSC*(N+1), VCO = 360MHz
-		LCD_WR_DATA(0x23);		//参数1 
-		LCD_WR_DATA(0x02);		//参数2 Divider M = 2, PLL = 360/(M+1) = 120MHz
+		LCD_WR_REG(0xE2);		//Set PLL with OSC = 10MHz (hardware),	Multiplier N = 35, 250MHz < VCO < 800MHz = OSC*(N+1), VCO = 300MHz
+		LCD_WR_DATA(0x1D);		//参数1 
+		LCD_WR_DATA(0x02);		//参数2 Divider M = 2, PLL = 300/(M+1) = 100MHz
 		LCD_WR_DATA(0x04);		//参数3 Validate M and N values   
 		delay_us(100);
 		LCD_WR_REG(0xE0);		// Start PLL command
@@ -2574,8 +2574,8 @@ void LCD_Init(void)
 		LCD_WR_REG(0x01);		//软复位
 		delay_ms(10);
 		
-		LCD_WR_REG(0xE6);		//设置像素频率
-		LCD_WR_DATA(0x03);
+		LCD_WR_REG(0xE6);		//设置像素频率,33Mhz
+		LCD_WR_DATA(0x2F);
 		LCD_WR_DATA(0xFF);
 		LCD_WR_DATA(0xFF);
 		
@@ -2592,8 +2592,8 @@ void LCD_Init(void)
 		LCD_WR_REG(0xB4);		//Set horizontal period
 		LCD_WR_DATA((SSD_HT-1)>>8);
 		LCD_WR_DATA(SSD_HT-1);
-		LCD_WR_DATA((SSD_HPS-1)>>8);
-		LCD_WR_DATA(SSD_HPS-1);
+		LCD_WR_DATA(SSD_HPS>>8);
+		LCD_WR_DATA(SSD_HPS);
 		LCD_WR_DATA(SSD_HOR_PULSE_WIDTH-1);
 		LCD_WR_DATA(0x00);
 		LCD_WR_DATA(0x00);
@@ -2601,8 +2601,8 @@ void LCD_Init(void)
 		LCD_WR_REG(0xB6);		//Set vertical period
 		LCD_WR_DATA((SSD_VT-1)>>8);
 		LCD_WR_DATA(SSD_VT-1);
-		LCD_WR_DATA((SSD_VSP-1)>>8);
-		LCD_WR_DATA(SSD_VSP-1);
+		LCD_WR_DATA(SSD_VPS>>8);
+		LCD_WR_DATA(SSD_VPS);
 		LCD_WR_DATA(SSD_VER_FRONT_PORCH-1);
 		LCD_WR_DATA(0x00);
 		LCD_WR_DATA(0x00);
@@ -2614,16 +2614,17 @@ void LCD_Init(void)
 		//设置PWM输出  背光通过占空比可调 
 		LCD_WR_REG(0xD0);	//设置自动白平衡DBC
 		LCD_WR_DATA(0x00);	//disable
-
+	
 		LCD_WR_REG(0xBE);	//配置PWM输出
 		LCD_WR_DATA(0x05);	//1设置PWM频率
 		LCD_WR_DATA(0xFE);	//2设置PWM占空比
 		LCD_WR_DATA(0x01);	//3设置C
-		LCD_WR_DATA(0xFF);	//4设置D
+		LCD_WR_DATA(0x00);	//4设置D
 		LCD_WR_DATA(0x00);	//5设置E 
+		LCD_WR_DATA(0x00);	//6设置F 
 		
 		LCD_WR_REG(0xB8);	//设置GPIO配置
-		LCD_WR_DATA(0x0F);	//4个IO口设置成输出
+		LCD_WR_DATA(0x03);	//2个IO口设置成输出
 		LCD_WR_DATA(0x01);	//GPIO使用正常的IO功能 
 		LCD_WR_REG(0xBA);
 		LCD_WR_DATA(0X01);	//GPIO[1:0]=01,控制LCD方向

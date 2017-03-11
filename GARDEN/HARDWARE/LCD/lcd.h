@@ -4,14 +4,14 @@
 #include "stdlib.h"
 //////////////////////////////////////////////////////////////////////////////////	 
 //本程序只供学习使用，未经作者许可，不得用于其它任何用途
-//ALIENTEK 战舰STM32F103开发板V3
+//ALIENTEK精英STM32F103开发板V1
 //2.4寸/2.8寸/3.5寸/4.3寸/7寸 TFT液晶驱动	  
 //支持驱动IC型号包括:ILI9341/ILI9325/RM68042/RM68021/ILI9320/ILI9328/LGDP4531/LGDP4535/
 //                  SPFD5408/1505/B505/C505/NT35310/NT35510/SSD1963等		    
 //正点原子@ALIENTEK
 //技术论坛:www.openedv.com
 //创建日期:2010/7/4
-//版本：V2.9
+//版本：V3.0
 //版权所有，盗版必究。
 //Copyright(C) 广州市星翼电子科技有限公司 2014-2024
 //All rights reserved	
@@ -72,6 +72,8 @@
 //1,新增对SSD1963 LCD的支持.
 //2,新增LCD_SSD_BackLightSet函数
 //3,取消ILI93XX的Rxx寄存器定义
+//V3.0 20150423
+//修改SSD1963 LCD屏的驱动参数.
 //////////////////////////////////////////////////////////////////////////////////	 
 
   
@@ -182,17 +184,17 @@ void LCD_Set_Window(u16 sx,u16 sy,u16 width,u16 height);	//设置窗口
 #define SSD_VER_RESOLUTION		480		//LCD垂直分辨率
 //LCD驱动参数设置
 #define SSD_HOR_PULSE_WIDTH		1		//水平脉宽
-#define SSD_HOR_BACK_PORCH		210		//水平前廊
-#define SSD_HOR_FRONT_PORCH		45		//水平后廊
+#define SSD_HOR_BACK_PORCH		46		//水平前廊
+#define SSD_HOR_FRONT_PORCH		210		//水平后廊
 
 #define SSD_VER_PULSE_WIDTH		1		//垂直脉宽
-#define SSD_VER_BACK_PORCH		34		//垂直前廊
-#define SSD_VER_FRONT_PORCH		10		//垂直前廊
+#define SSD_VER_BACK_PORCH		23		//垂直前廊
+#define SSD_VER_FRONT_PORCH		22		//垂直前廊
 //如下几个参数，自动计算
-#define SSD_HT	(SSD_HOR_RESOLUTION+SSD_HOR_PULSE_WIDTH+SSD_HOR_BACK_PORCH+SSD_HOR_FRONT_PORCH)
-#define SSD_HPS	(SSD_HOR_PULSE_WIDTH+SSD_HOR_BACK_PORCH)
-#define SSD_VT 	(SSD_VER_PULSE_WIDTH+SSD_VER_BACK_PORCH+SSD_VER_FRONT_PORCH+SSD_VER_RESOLUTION)
-#define SSD_VSP (SSD_VER_PULSE_WIDTH+SSD_VER_BACK_PORCH)
+#define SSD_HT	(SSD_HOR_RESOLUTION+SSD_HOR_BACK_PORCH+SSD_HOR_FRONT_PORCH)
+#define SSD_HPS	(SSD_HOR_BACK_PORCH)
+#define SSD_VT 	(SSD_VER_RESOLUTION+SSD_VER_BACK_PORCH+SSD_VER_FRONT_PORCH)
+#define SSD_VPS (SSD_VER_BACK_PORCH)
 
 #endif  
 	 
