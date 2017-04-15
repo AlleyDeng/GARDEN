@@ -8,7 +8,7 @@
   */
 void atk_8266_at_response(u8 mode)
 {
-	uint8_t *com;
+//	uint8_t *com;
 	extern uint8_t LED_Flag;
 	
 	if(USART3_RX_STA&0X8000)								/* 接收到一次数据 */
