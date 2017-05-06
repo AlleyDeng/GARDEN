@@ -365,7 +365,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\ATK-ESP8266;..\CORE;..\FATFS\src;..\FATFS\exfuns;..\HARDWARE\24CXX;..\HARDWARE\IIC;..\HARDWARE\KEY;..\HARDWARE\LCD;..\HARDWARE\LED;..\HARDWARE\SDIO;..\HARDWARE\SPI;..\HARDWARE\TIMER;..\HARDWARE\TOUCH;..\HARDWARE\USART3;..\HARDWARE\W25QXX;..\MALLOC;..\STM32F10x_FWLib\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\TEXT;..\USER;..\USMART;..\HARDWARE\DS18B20;..\HARDWARE\ADC</IncludePath>
+              <IncludePath>..\ATK-ESP8266;..\CORE;..\FATFS\src;..\FATFS\exfuns;..\HARDWARE;..\MALLOC;..\STM32F10x_FWLib\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\TEXT;..\USER;..\USMART;..\HARDWARE\DS18B20;..\HARDWARE\ADC</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -464,39 +464,49 @@
           <GroupName>HARDWARE</GroupName>
           <Files>
             <File>
-              <FileName>key.c</FileName>
+              <FileName>adc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\HARDWARE\KEY\key.c</FilePath>
-            </File>
-            <File>
-              <FileName>lcd.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\LCD\lcd.c</FilePath>
-            </File>
-            <File>
-              <FileName>led.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\LED\led.c</FilePath>
-            </File>
-            <File>
-              <FileName>timer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\TIMER\timer.c</FilePath>
-            </File>
-            <File>
-              <FileName>usart3.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\USART3\usart3.c</FilePath>
+              <FilePath>..\HARDWARE\adc.c</FilePath>
             </File>
             <File>
               <FileName>ds18b20.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\HARDWARE\DS18B20\ds18b20.c</FilePath>
+              <FilePath>..\HARDWARE\ds18b20.c</FilePath>
             </File>
             <File>
-              <FileName>adc.c</FileName>
+              <FileName>exti.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\HARDWARE\ADC\adc.c</FilePath>
+              <FilePath>..\HARDWARE\exti.c</FilePath>
+            </File>
+            <File>
+              <FileName>key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\key.c</FilePath>
+            </File>
+            <File>
+              <FileName>lcd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\lcd.c</FilePath>
+            </File>
+            <File>
+              <FileName>led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\led.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart3.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\usart3.c</FilePath>
+            </File>
+            <File>
+              <FileName>rtc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\rtc.c</FilePath>
             </File>
           </Files>
         </Group>

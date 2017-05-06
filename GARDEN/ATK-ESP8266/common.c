@@ -10,15 +10,24 @@ void atk_8266_at_response(u8 mode)
 {
 //	uint8_t *com;
 	extern uint8_t LED_Flag;
-	
+	extern uint8_t waterFlag;
+	extern uint8_t ctrlFlag;
 	if(USART3_RX_STA&0X8000)								/* 接收到一次数据 */
 	{ 
 		USART3_RX_BUF[USART3_RX_STA&0X7FFF]=0;				/* 添加结束符 */
-		if (strstr((char *)USART3_RX_BUF, "LEDON") != 0) {
+		if (strstr((char *)USART3_RX_BUF, "WATERON") != 0) {
 			LED_Flag = 1;
+			waterFlag = 1;
 		}
-		if (strstr((char *)USART3_RX_BUF, "LEDOFF") != 0) {
+		if (strstr((char *)USART3_RX_BUF, "WATEROFF") != 0) {
 			LED_Flag = 0;
+			waterFlag = 0;
+		}
+		if (strstr((char *)USART3_RX_BUF, "CTRLON") != 0) {
+			ctrlFlag = 1;	
+		}
+		if (strstr((char *)USART3_RX_BUF, "CTRLOFF") != 0) {
+			ctrlFlag = 0;	
 		}
 		printf("%s\r\n",USART3_RX_BUF);						/* 发送到串口 */
 		if(mode)USART3_RX_STA=0;
